@@ -2,3 +2,11 @@
     name=consul-template
     state=started
     enabled=yes
+    daemon_reload=yes
+  when: consul_template_use_systemd
+
+- service: >
+    name=consul-template
+    state=started
+    enabled=yes
+  when: consul_template_use_upstart or consul_template_use_initd
